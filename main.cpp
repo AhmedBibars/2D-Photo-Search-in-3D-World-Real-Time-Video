@@ -62,12 +62,12 @@ int main(int argc, const char** argv)
 		Localizer.SetFrameSize(frame);
 		cv::Mat TargetFrame;
 		
-		for (;;)
+		for (;;)                                          // Main loop
 		{
-			iplImg = cvQueryFrame(capture);       // capture new frame from the camera.
+			iplImg = cvQueryFrame(capture);           // capture new frame from the camera.
 			frame = iplImg;
 			if (frame.empty())
-				break;               // error
+				break;                           // error
 			MatchImage=Localizer.NewFrame(frame);    // find the target-image in the new camera frame
 			imshow("MatchResult",MatchImage);
 			if(Localizer.IsLock())                   // if the target location inside the image is found
