@@ -1,3 +1,4 @@
+// This file is not mine, I copied it from an open-source project for image matching. 
 /*------------------------------------------------------------------------------------------*\
    This file contains material supporting chapter 9 of the cookbook:  
    Computer Vision Programming using the OpenCV Library.
