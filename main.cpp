@@ -64,15 +64,15 @@ int main(int argc, const char** argv)
 		
 		for (;;)
 		{
-			iplImg = cvQueryFrame(capture);
+			iplImg = cvQueryFrame(capture);       // capture new frame from the camera.
 			frame = iplImg;
 			if (frame.empty())
-				break;
-			MatchImage=Localizer.NewFrame(frame);
+				break;               // error
+			MatchImage=Localizer.NewFrame(frame);    // find the target-image in the new camera frame
 			imshow("MatchResult",MatchImage);
-			if(Localizer.IsLock())
+			if(Localizer.IsLock())                   // if the target location inside the image is found
 			{ 
-				TargetFrame=Localizer.TargetHighLight(frame,Target3D);
+				TargetFrame=Localizer.TargetHighLight(frame,Target3D);  // ougment a Mark over target location
 				imshow("Traget",TargetFrame);
 				cv::viz::WTrajectory VizCamPoseTraj=Localizer.Visualize3D(30);
 				myWindow.showWidget("trajectory2",VizCamPoseTraj);
